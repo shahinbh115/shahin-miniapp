@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahin Points</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #10131a;
+      color: white;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: auto;
+      padding: 25px 18px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 55px;
+      margin-top: 15px;
+    }
+
+    h1 {
+      margin: 5px 0;
+      font-size: 25px;
+    }
+
+    .balance-box {
+      margin: 25px 0;
+      padding: 25px;
+      border-radius: 22px;
+      background: #1c212b;
+    }
+
+    .balance {
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .label {
+      color: #999;
+      margin-top: 5px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .menu button {
+      min-height: 90px;
+      border: none;
+      border-radius: 18px;
+      background: #1c212b;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .menu button:active {
+      transform: scale(0.97);
+    }
+
+    .full {
+      grid-column: 1 / 3;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div class="logo">🪙</div>
+
+    <h1>SHAHIN POINTS</h1>
+
+    <div class="balance-box">
+      <div class="balance" id="balance">0</div>
+      <div class="label">POINTS</div>
+    </div>
+
+    <div class="menu">
+
+      <button onclick="daily()">
+        🎁<br>
+        Daily Reward
+      </button>
+
+      <button onclick="spin()">
+        🎡<br>
+        Spin
+      </button>
+
+      <button onclick="tasks()">
+        📋<br>
+        Tasks
+      </button>
+
+      <button onclick="invite()">
+        👥<br>
+        Invite
+      </button>
+
+      <button onclick="rank()">
+        🏆<br>
+        Leaderboard
+      </button>
+
+      <button onclick="profile()">
+        👤<br>
+        Profile
+      </button>
+
+      <button class="full" onclick="wallet()">
+        👛 Wallet
+      </button>
+
+    </div>
+
+    <div class="footer">
+      Shahin Points © 2026
+    </div>
+
+  </div>
+
+  <script>
+
+    let balance = 0;
+
+    function daily() {
+      alert("🎁 Daily Reward\nبه‌زودی فعال می‌شود.");
+    }
+
+    function spin() {
+      alert("🎡 Spin\nگردونه به‌زودی فعال می‌شود.");
+    }
+
+    function tasks() {
+      alert("📋 Tasks\nتسک‌ها به‌زودی اضافه می‌شوند.");
+    }
+
+    function invite() {
+      alert("👥 Invite\nلینک دعوت به‌زودی ساخته می‌شود.");
+    }
+
+    function rank() {
+      alert("🏆 Leaderboard\nبه‌زودی فعال می‌شود.");
+    }
+
+    function profile() {
+      alert("👤 Profile\nپروفایل شما به‌زودی ساخته می‌شود.");
+    }
+
+    function wallet() {
+      alert("👛 Wallet\nاتصال کیف پول به‌زودی فعال می‌شود.");
+    }
+
+  </script>
+
+</body>
+</html>
+
