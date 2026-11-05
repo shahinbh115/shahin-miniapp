@@ -1,290 +1,193 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d19">
-<title>$HAHIN Mining</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#090909">
+<title>$HAHIN | Airdrop</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#080d19;color:#f4f7ff;
- font-family:Arial,sans-serif;min-height:100vh;
-}
-.app{max-width:460px;margin:auto;padding:20px 17px 35px}
-header{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
-.logo{
- width:43px;height:43px;border-radius:14px;
- display:grid;place-items:center;font-size:24px;
- background:linear-gradient(135deg,#f8d77a,#8b6418);
- box-shadow:0 0 22px #087da955
-}
-.brand h2{font-size:19px;margin:0}
-.brand small{color:#8290a9;font-size:10px}
-.network{
- background:#241d10;border:1px solid #72551b;
- padding:8px 12px;border-radius:20px;
- color:#f4c95d;font-size:11px
-}
-.hero{text-align:center;margin-top:28px}
-.hero .eyebrow{color:#8a9bb4;font-size:12px}
-.balance{font-size:39px;font-weight:900;margin:9px 0}
-.unit{color:#42d6f1;font-size:12px;letter-spacing:2px}
-.stats{
- display:grid;grid-template-columns:1fr 1fr;
- gap:10px;margin-top:22px
-}
-.stat{
- background:#171717;border:1px solid #3a3020;
- padding:14px;border-radius:15px;text-align:right
-}
-.stat small{color:#a99b7a;font-size:11px}
-.stat strong{display:block;margin-top:8px;font-size:17px}
-.mining{
- margin-top:22px;padding:19px 15px;
- border:1px solid #59451d;border-radius:23px;
- background:radial-gradient(ellipse at 50% 35%,#382b12,#17140e 60%,#121212);
- text-align:center;overflow:hidden
-}
-.mining-title{font-size:14px;font-weight:bold}
-.tower{
- width:145px;height:175px;margin:20px auto;
- position:relative;display:flex;flex-direction:column-reverse;
- align-items:center;justify-content:space-evenly;
- filter:drop-shadow(0 0 15px #e6b84a66)
-}
-.floor{
- width:90px;height:29px;
- background:linear-gradient(90deg,#5b4315,#c58d25,#5b4315);
- border:1px solid #f4c95d;border-radius:5px;
- position:relative;box-shadow:0 0 13px #d9a44144
-}
-.floor:after{
- content:"";position:absolute;left:9px;right:9px;top:7px;
- height:4px;background:#fff0b3;border-radius:5px;
- box-shadow:0 0 9px #f4c95d
-}
-.floor:nth-child(2n){width:108px}
-.floor:nth-child(3n){width:124px}
-.tower-base{
- width:138px;height:8px;border-radius:50%;
- background:#e6b84a;box-shadow:0 0 22px #e6b84a
-}
-.rate{color:#b8aa8a;font-size:11px}
-.rate strong{color:#f4c95d;font-size:16px}
-.mine-btn{
- width:100%;margin-top:18px;padding:16px;
- border:0;border-radius:14px;
- color:#17120a;font-weight:900;font-size:16px;
- background:linear-gradient(100deg,#f8d77a,#c58d25);
- box-shadow:0 5px 24px #d9a44133
-}
-.mine-btn:disabled{opacity:.7}
-.section-title{margin:25px 2px 13px;font-size:15px}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.item{
- background:#171717;border:1px solid #3a3020;
- border-radius:16px;padding:17px 12px;
- color:white;text-align:right;min-height:85px;
- cursor:pointer
-}
-.item:active{transform:scale(.97)}
-.item span{font-size:23px;display:block;margin-bottom:8px}
-.item strong{font-size:13px}
-.item small{display:block;color:#a99b7a;margin-top:5px;font-size:10px}
-footer{text-align:center;color:#81745b;font-size:10px;margin-top:27px}
-.notice{
- background:#211b10;border:1px solid #59451d;
- padding:12px;border-radius:12px;color:#c7b98e;
- font-size:11px;line-height:1.9;margin-top:18px
-}
-.overlay{
- display:none;position:fixed;inset:0;background:#050a13ee;
- z-index:5;align-items:center;justify-content:center;padding:20px
-}
-.modal{
- width:100%;max-width:400px;background:#17140e;
- border:1px solid #59451d;border-radius:20px;padding:22px
-}
-.modal h3{margin-top:0}
-.modal p{color:#a6b4c9;font-size:13px;line-height:2}
-.modal button{
- background:#382b12;color:white;border:0;
- padding:12px 18px;border-radius:10px;margin-top:10px
-}
+body{margin:0;background:#090909;color:#f7f2e8;font-family:Tahoma,Arial,sans-serif;padding-bottom:85px}
+:root{--gold:#e9bd59;--muted:#999;--panel:#151515;--line:#29251c}
+header{padding:22px 18px 12px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px;color:var(--gold)}
+.logo span{color:white}
+.pill{font-size:11px;border:1px solid #5a4824;color:var(--gold);padding:7px 10px;border-radius:20px}
+main{max-width:520px;margin:auto;padding:10px 16px}
+.welcome{color:var(--muted);font-size:13px;margin:8px 0 16px}
+.hero{border:1px solid #55421d;border-radius:22px;padding:22px 18px;background:radial-gradient(ellipse at top,#35270e 0%,#17130c 42%,#111 100%);text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#d6a83b12;filter:blur(25px);top:-90px;left:calc(50% - 90px)}
+.small{font-size:12px;color:#b8aa8c}
+.balance{font-size:35px;font-weight:900;color:var(--gold);margin:12px 0 4px;direction:ltr}
+.unit{font-size:12px;color:#c9b98f;letter-spacing:2px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stat{background:#ffffff09;border:1px solid #ffffff12;border-radius:13px;padding:12px}
+.stat b{display:block;color:var(--gold);font-size:17px;margin-top:7px}
+.stat span{font-size:11px;color:var(--muted)}
+.section{margin-top:22px}
+.section-title{font-size:15px;font-weight:bold;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.section-title small{font-size:11px;color:var(--muted);font-weight:normal}
+.mine{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#191919,#101010);padding:18px;text-align:center}
+.orb{width:90px;height:90px;border-radius:50%;margin:5px auto 14px;display:grid;place-items:center;font-size:37px;color:var(--gold);border:2px solid #92702d;box-shadow:0 0 28px #d8a83c26,inset 0 0 20px #d8a83c16;background:radial-gradient(circle,#33260f,#111)}
+.timer{font-size:27px;direction:ltr;color:var(--gold);font-weight:bold;margin:10px}
+.progress{height:7px;border-radius:20px;background:#302a1d;overflow:hidden;margin:14px 0}
+.progress div{height:100%;width:0;background:linear-gradient(90deg,#9c7024,#ffe19a);border-radius:20px}
+button{border:0;font-family:inherit;cursor:pointer}
+.primary{width:100%;padding:15px;border-radius:13px;background:linear-gradient(100deg,#a97820,#f2d17a,#bd8b2c);color:#171109;font-weight:900;font-size:14px}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.secondary{background:#262116;color:var(--gold);border:1px solid #59451e;border-radius:12px;padding:12px 15px;width:100%;font-weight:bold}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);padding:15px;border-radius:15px}
+.card .ico{font-size:23px;margin-bottom:10px}
+.card b{font-size:13px;display:block}
+.card small{font-size:11px;color:var(--muted);display:block;margin-top:7px}
+.task{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:14px;margin-bottom:9px}
+.task .ico{font-size:23px}
+.task .info{flex:1}
+.task b{font-size:13px}
+.task small{display:block;color:var(--gold);font-size:11px;margin-top:6px}
+.task button{background:#3a2c12;color:var(--gold);padding:9px 11px;border-radius:9px;font-size:11px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#101010f5;border-top:1px solid #302819;display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:5;backdrop-filter:blur(12px)}
+.nav button{background:none;color:#888;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:55px}
+.nav button strong{font-size:20px;font-weight:normal}
+.nav button.active{color:var(--gold)}
+.page{display:none}
+.page.active{display:block}
+.notice{font-size:10px;line-height:1.9;color:#888;text-align:center;margin:18px 5px}
+.invitebox{background:#17140e;border:1px dashed #806126;padding:17px;border-radius:15px;text-align:center;margin-top:14px}
+.invitebox code{display:block;color:var(--gold);direction:ltr;margin:12px 0;word-break:break-all}
+.empty{text-align:center;padding:35px 10px;color:#999}
 </style>
 </head>
-
 <body>
-<div class="app">
-
 <header>
- <div class="brand">
-  <div class="logo">⚡</div>
-  <div>
-   <h2>$HAHIN</h2>
-   <small>GOLD MINING ECOSYSTEM</small>
-  </div>
- </div>
- <div class="network">● TON NETWORK</div>
+  <div class="logo">$<span>HAHIN</span></div>
+  <div class="pill">✦ AIRDROP NETWORK</div>
 </header>
 
-<div class="hero">
- <div class="eyebrow">موجودی کل شما</div>
- <div class="balance" id="balance">0</div>
- <div class="unit">$HAHIN POINTS</div>
-</div>
+<main>
+<section id="home" class="page active">
+  <div class="welcome">خوش اومدی به دنیای HAHIN ✨</div>
+  <div class="hero">
+    <div class="small">موجودی کل امتیازهای شما</div>
+    <div class="balance" id="balance">0</div>
+    <div class="unit">HAHIN POINTS</div>
+    <div class="stats">
+      <div class="stat"><span>قدرت ماینینگ</span><b id="rate">100 / ساعت</b></div>
+      <div class="stat"><span>وضعیت ماینینگ</span><b id="status">غیرفعال</b></div>
+    </div>
+  </div>
 
-<div class="stats">
- <div class="stat">
-  <small>قدرت استخراج</small>
-  <strong id="power">10 / ساعت</strong>
- </div>
- <div class="stat">
-  <small>وضعیت استخراج</small>
-  <strong id="status">خاموش ⚪</strong>
- </div>
-</div>
+  <div class="section">
+    <div class="section-title">⛏️ ماینینگ شما <small>دوره ۱۲ ساعته</small></div>
+    <div class="mine">
+      <div class="orb">⚡</div>
+      <div class="small" id="mineText">برای شروع، دکمه زیر رو بزن</div>
+      <div class="timer" id="timer">12:00:00</div>
+      <div class="progress"><div id="bar"></div></div>
+      <div class="small" id="earned">پاداش این دوره: 1,200 امتیاز</div>
+      <button class="primary" id="mineBtn" onclick="mineAction()">START MINING</button>
+    </div>
+  </div>
 
-<div class="mining">
- <div class="mining-title">⚡ برج استخراج HAHIN</div>
+  <div class="section">
+    <div class="section-title">🎁 پاداش‌های روزانه</div>
+    <div class="card">
+      <div class="ico">🎁</div>
+      <b>جایزه ورود روزانه</b>
+      <small>هر روز به بازی سر بزن و جایزه بگیر</small>
+      <button class="secondary" id="dailyBtn" style="margin-top:13px" onclick="dailyReward()">دریافت جایزه روزانه</button>
+    </div>
+  </div>
+</section>
 
- <div class="tower">
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="floor"></div>
-  <div class="tower-base"></div>
- </div>
+<section id="tasks" class="page">
+  <div class="section-title">📋 تسک‌ها <small>ماموریت‌های کسب امتیاز</small></div>
+  <div class="task"><div class="ico">📢</div><div class="info"><b>عضویت در کانال تلگرام</b><small>+500 امتیاز</small></div><button onclick="taskInfo()">انجام تسک</button></div>
+  <div class="task"><div class="ico">👥</div><div class="info"><b>دعوت از یک دوست</b><small>+300 امتیاز</small></div><button onclick="go('invite')">دعوت</button></div>
+  <div class="task"><div class="ico">🌟</div><div class="info"><b>بازدید روزانه</b><small>+100 امتیاز</small></div><button onclick="go('home')">دریافت</button></div>
+  <p class="notice">پاداش تسک‌ها تا زمان اتصال سیستم تأیید و سرور، آزمایشی هستند.</p>
+</section>
 
- <div class="rate">
-  درآمد ساعتی:
-  <strong>10 HAHIN</strong>
- </div>
+<section id="invite" class="page">
+  <div class="section-title">👥 دعوت دوستان</div>
+  <div class="hero">
+    <div class="orb">🤝</div>
+    <div class="small">دوستات رو به HAHIN دعوت کن</div>
+    <div class="balance" style="font-size:27px">+300</div>
+    <div class="unit">امتیاز برای هر دعوت معتبر (نمونه)</div>
+  </div>
+  <div class="invitebox">
+    <b>لینک دعوت اختصاصی</b>
+    <code id="inviteLink">لینک پس از اتصال ربات ساخته می‌شود</code>
+    <button class="primary" onclick="copyInvite()">کپی لینک دعوت</button>
+  </div>
+  <p class="notice">دعوت واقعی و ثبت پاداش نیازمند اتصال به ربات و سرور است.</p>
+</section>
 
- <button class="mine-btn" id="mineBtn" onclick="toggleMining()">
-  ⚡ شروع استخراج
- </button>
-</div>
+<section id="wallet" class="page">
+  <div class="section-title">💰 کیف پول و امتیازها</div>
+  <div class="hero">
+    <div class="small">موجودی فعلی</div>
+    <div class="balance" id="walletBalance">0</div>
+    <div class="unit">HAHIN POINTS</div>
+  </div>
+  <div class="section">
+    <div class="card">
+      <div class="ico">🔐</div>
+      <b>وضعیت برداشت</b>
+      <small>برداشت هنوز فعال نشده است. هر زمان سیستم برداشت واقعی راه‌اندازی شود، همین‌جا اطلاع‌رسانی می‌کنیم.</small>
+    </div>
+  </div>
+</section>
 
-<div class="notice">
-  🚀 با فعال‌کردن استخراج، امتیاز آزمایشی جمع‌آوری کن.
-  این امتیاز فعلاً ارزش نقدی یا امکان برداشت ندارد.
-</div>
+<p class="notice">نسخه آزمایشی رابط کاربری $HAHIN است. امتیازها فعلاً ارزش نقدی یا قابلیت برداشت ندارند.</p>
+</main>
 
-<h3 class="section-title">مرکز امکانات</h3>
-
-<div class="menu">
- <button class="item" onclick="openPage('upgrade')">
-  <span>🏗️</span>
-  <strong>ارتقای برج</strong>
-  <small>افزایش قدرت استخراج</small>
- </button>
-
- <button class="item" onclick="openPage('tasks')">
-  <span>📋</span>
-  <strong>مأموریت‌ها</strong>
-  <small>دریافت امتیاز جایزه</small>
- </button>
-
- <button class="item" onclick="openPage('invite')">
-  <span>👥</span>
-  <strong>دعوت دوستان</strong>
-  <small>سیستم معرفی کاربران</small>
- </button>
-
- <button class="item" onclick="openPage('wallet')">
-  <span>👛</span>
-  <strong>کیف پول</strong>
-  <small>اتصال TON در آینده</small>
- </button>
-
- <button class="item" onclick="openPage('daily')">
-  <span>🎁</span>
-  <strong>جایزه روزانه</strong>
-  <small>پاداش ورود روزانه</small>
- </button>
-
- <button class="item" onclick="openPage('profile')">
-  <span>👤</span>
-  <strong>پروفایل</strong>
-  <small>اطلاعات حساب</small>
- </button>
-</div>
-
-<footer>$HAHIN ECOSYSTEM © 2026</footer>
-</div>
-
-<div class="overlay" id="overlay">
- <div class="modal">
-  <h3 id="modalTitle">$HAHIN</h3>
-  <p id="modalText"></p>
-  <button onclick="closePage()">بازگشت</button>
- </div>
-</div>
+<nav class="nav">
+  <button class="active" data-page="home" onclick="go('home')"><strong>⌂</strong>خانه</button>
+  <button data-page="tasks" onclick="go('tasks')"><strong>▤</strong>تسک‌ها</button>
+  <button data-page="invite" onclick="go('invite')"><strong>♧</strong>دعوت</button>
+  <button data-page="wallet" onclick="go('wallet')"><strong>◈</strong>کیف پول</button>
+</nav>
 
 <script>
-let balance=Number(localStorage.getItem("hahin_balance")||0);
-let mining=localStorage.getItem("hahin_mining")==="true";
-let last=Number(localStorage.getItem("hahin_last")||Date.now());
-
-function save(){
- localStorage.setItem("hahin_balance",balance);
- localStorage.setItem("hahin_mining",mining);
- localStorage.setItem("hahin_last",last);
+const HOUR=3600000, DURATION=12*HOUR, REWARD=1200;
+let balance=Number(localStorage.getItem('hah_balance')||0);
+let start=Number(localStorage.getItem('hah_start')||0);
+let lastDaily=localStorage.getItem('hah_daily')||'';
+function save(){localStorage.setItem('hah_balance',balance);document.getElementById('balance').textContent=balance.toLocaleString('en-US');document.getElementById('walletBalance').textContent=balance.toLocaleString('en-US')}
+function go(page){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(page).classList.add('active');
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
 }
-
+function mineAction(){
+ if(!start){start=Date.now();localStorage.setItem('hah_start',start);update();}
+ else if(Date.now()>=start+DURATION){balance+=REWARD;localStorage.setItem('hah_balance',balance);start=0;localStorage.removeItem('hah_start');save();update();alert('تبریک! ۱۲۰۰ امتیاز به موجودی آزمایشی شما اضافه شد.');}
+}
 function update(){
- if(mining){
-  let now=Date.now();
-  let elapsed=Math.max(0,Math.min(now-last,86400000));
-  balance+=elapsed/3600000*10;
-  last=now;
-  save();
- }
- document.getElementById("balance").innerText=
- Math.floor(balance).toLocaleString("en-US");
- document.getElementById("status").innerText=
- mining?"فعال 🟢":"خاموش ⚪";
- document.getElementById("mineBtn").innerText=
- mining?"⏸ توقف استخراج":"⚡ شروع استخراج";
-}
-
-function toggleMining(){
- mining=!mining;
- last=Date.now();
  save();
- update();
+ const btn=document.getElementById('mineBtn'),status=document.getElementById('status');
+ if(!start){document.getElementById('timer').textContent='12:00:00';document.getElementById('bar').style.width='0%';document.getElementById('mineText').textContent='برای شروع، دکمه زیر رو بزن';document.getElementById('earned').textContent='پاداش این دوره: 1,200 امتیاز';btn.textContent='START MINING';btn.disabled=false;status.textContent='غیرفعال';}
+ else{
+  const elapsed=Date.now()-start,remaining=Math.max(0,DURATION-elapsed),h=Math.floor(remaining/HOUR),m=Math.floor(remaining%HOUR/60000),s=Math.floor(remaining%60000/1000);
+  document.getElementById('timer').textContent=[h,m,s].map(x=>String(x).padStart(2,'0')).join(':');
+  document.getElementById('bar').style.width=Math.min(100,elapsed/DURATION*100)+'%';
+  document.getElementById('mineText').textContent=remaining?'ماینینگ در حال انجام است':'پاداش شما آماده دریافت است';
+  document.getElementById('earned').textContent=remaining?'پس از پایان تایمر، پاداش را دریافت کن':'۱۲۰۰ امتیاز آماده دریافت است';
+  btn.textContent=remaining?'MINING...':'CLAIM REWARD';btn.disabled=!!remaining;status.textContent='فعال';
+ }
 }
-
-function openPage(page){
- let title="",message="";
- const pages={
-  upgrade:["🏗️ ارتقای برج","ارتقای تجهیزات در نسخه بعدی فعال می‌شود."],
-  tasks:["📋 مأموریت‌ها","مأموریت‌های تبلیغاتی و امتیازی به‌زودی اضافه می‌شوند."],
-  invite:["👥 دعوت دوستان","سیستم لینک دعوت پس از اتصال به ربات فعال می‌شود."],
-  wallet:["👛 کیف پول","اتصال کیف پول TON در نسخه بعدی راه‌اندازی می‌شود. برای اتصال هرگز عبارت بازیابی خود را وارد نکنید."],
-  daily:["🎁 جایزه روزانه","سیستم پاداش روزانه در نسخه بعدی فعال می‌شود."],
-  profile:["👤 پروفایل","حساب کاربری شما در نسخه بعدی تکمیل می‌شود."]
- };
- [title,message]=pages[page];
- document.getElementById("modalTitle").innerText=title;
- document.getElementById("modalText").innerText=message;
- document.getElementById("overlay").style.display="flex";
+function dailyReward(){
+ const today=new Date().toLocaleDateString('en-CA');
+ if(lastDaily===today){alert('جایزه امروز رو قبلاً دریافت کردی!');return;}
+ balance+=100;lastDaily=today;localStorage.setItem('hah_daily',today);localStorage.setItem('hah_balance',balance);save();alert('۱۰۰ امتیاز آزمایشی دریافت کردی!');document.getElementById('dailyBtn').textContent='جایزه دریافت شد ✓';
 }
-
-function closePage(){
- document.getElementById("overlay").style.display="none";
-}
-
-update();
-setInterval(update,1000);
+function taskInfo(){alert('برای فعال‌سازی این تسک باید کانال رسمی و سیستم تأیید عضویت متصل شوند.');}
+function copyInvite(){alert('لینک دعوت پس از اتصال به ربات تلگرام ساخته می‌شود.');}
+if(lastDaily===new Date().toLocaleDateString('en-CA'))document.getElementById('dailyBtn').textContent='جایزه دریافت شد ✓';
+update();setInterval(update,1000);
 </script>
 </body>
 </html>
