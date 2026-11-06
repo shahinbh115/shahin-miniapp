@@ -1,193 +1,509 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#090909">
-<title>$HAHIN | Airdrop</title>
+<title>$HAHIN</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090909;color:#f7f2e8;font-family:Tahoma,Arial,sans-serif;padding-bottom:85px}
-:root{--gold:#e9bd59;--muted:#999;--panel:#151515;--line:#29251c}
-header{padding:22px 18px 12px;display:flex;align-items:center;justify-content:space-between}
-.logo{direction:ltr;unicode-bidi:isolate;font-size:25px;font-weight:900;letter-spacing:1px;color:var(--gold)}
+:root{
+  --bg:#090909;
+  --panel:#151515;
+  --gold:#e7b84e;
+  --gold2:#ffdc86;
+  --muted:#999;
+  --line:#292929;
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#fff;
+  font-family:Tahoma,Arial,sans-serif;
+  min-height:100vh;
+}
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:20px 16px 35px;
+}
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+.logo{
+  direction:ltr;
+  unicode-bidi:isolate;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:#fff;
+}
 .logo span{color:var(--gold)}
-.pill{font-size:11px;border:1px solid #5a4824;color:var(--gold);padding:7px 10px;border-radius:20px}
-main{max-width:520px;margin:auto;padding:10px 16px}
-.welcome{color:var(--muted);font-size:13px;margin:8px 0 16px}
-.hero{border:1px solid #55421d;border-radius:22px;padding:22px 18px;background:radial-gradient(ellipse at top,#35270e 0%,#17130c 42%,#111 100%);text-align:center;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#d6a83b12;filter:blur(25px);top:-90px;left:calc(50% - 90px)}
-.small{font-size:12px;color:#b8aa8c}
-.balance{font-size:35px;font-weight:900;color:var(--gold);margin:12px 0 4px;direction:ltr}
-.unit{font-size:12px;color:#c9b98f;letter-spacing:2px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.stat{background:#ffffff09;border:1px solid #ffffff12;border-radius:13px;padding:12px}
-.stat b{display:block;color:var(--gold);font-size:17px;margin-top:7px}
-.stat span{font-size:11px;color:var(--muted)}
-.section{margin-top:22px}
-.section-title{font-size:15px;font-weight:bold;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
-.section-title small{font-size:11px;color:var(--muted);font-weight:normal}
-.mine{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#191919,#101010);padding:18px;text-align:center}
-.orb{width:90px;height:90px;border-radius:50%;margin:5px auto 14px;display:grid;place-items:center;font-size:37px;color:var(--gold);border:2px solid #92702d;box-shadow:0 0 28px #d8a83c26,inset 0 0 20px #d8a83c16;background:radial-gradient(circle,#33260f,#111)}
-.timer{font-size:27px;direction:ltr;color:var(--gold);font-weight:bold;margin:10px}
-.progress{height:7px;border-radius:20px;background:#302a1d;overflow:hidden;margin:14px 0}
-.progress div{height:100%;width:0;background:linear-gradient(90deg,#9c7024,#ffe19a);border-radius:20px}
-button{border:0;font-family:inherit;cursor:pointer}
-.primary{width:100%;padding:15px;border-radius:13px;background:linear-gradient(100deg,#a97820,#f2d17a,#bd8b2c);color:#171109;font-weight:900;font-size:14px}
-.primary:disabled{opacity:.45;cursor:not-allowed}
-.secondary{background:#262116;color:var(--gold);border:1px solid #59451e;border-radius:12px;padding:12px 15px;width:100%;font-weight:bold}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{background:var(--panel);border:1px solid var(--line);padding:15px;border-radius:15px}
-.card .ico{font-size:23px;margin-bottom:10px}
-.card b{font-size:13px;display:block}
-.card small{font-size:11px;color:var(--muted);display:block;margin-top:7px}
-.task{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:14px;margin-bottom:9px}
-.task .ico{font-size:23px}
-.task .info{flex:1}
-.task b{font-size:13px}
-.task small{display:block;color:var(--gold);font-size:11px;margin-top:6px}
-.task button{background:#3a2c12;color:var(--gold);padding:9px 11px;border-radius:9px;font-size:11px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#101010f5;border-top:1px solid #302819;display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:5;backdrop-filter:blur(12px)}
-.nav button{background:none;color:#888;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:55px}
-.nav button strong{font-size:20px;font-weight:normal}
-.nav button.active{color:var(--gold)}
+.status{
+  color:var(--gold);
+  background:#282012;
+  padding:8px 12px;
+  border-radius:20px;
+  font-size:11px;
+}
+.welcome{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+.sub{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+.balance-card{
+  background:linear-gradient(135deg,#30240f,#151515 75%);
+  border:1px solid #70551e;
+  border-radius:20px;
+  padding:23px 20px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 30px #0008;
+}
+.balance-label{color:#d8c18f;font-size:13px}
+.balance{
+  font-size:37px;
+  font-weight:900;
+  color:var(--gold2);
+  margin:12px 0;
+  direction:ltr;
+}
+.balance-unit{font-size:12px;color:#c6aa70}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:19px;
+  margin-bottom:15px;
+}
+.card-title{
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:13px;
+}
+.mining-icon{
+  font-size:39px;
+  text-align:center;
+  margin:10px 0;
+}
+.timer{
+  direction:ltr;
+  text-align:center;
+  font-size:29px;
+  color:var(--gold2);
+  font-weight:bold;
+  margin:13px 0;
+}
+.progress{
+  height:7px;
+  background:#333;
+  border-radius:10px;
+  overflow:hidden;
+  margin:15px 0;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#a87924,#ffdc86);
+  transition:width .5s;
+}
+.info{
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  line-height:2;
+}
+.btn{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:15px;
+  margin-top:13px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(100deg,#c18b2b,#ffdc86);
+  color:#17110a;
+}
+.btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+.btn.secondary{
+  background:#242424;
+  color:var(--gold2);
+  border:1px solid #59451f;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.mini-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:17px 12px;
+  border-radius:16px;
+  text-align:center;
+}
+.mini-icon{font-size:25px;margin-bottom:9px}
+.mini-title{font-size:13px;font-weight:bold}
+.mini-desc{font-size:10px;color:var(--muted);margin-top:7px}
+.section{margin-top:23px}
+.section-title{font-size:16px;font-weight:bold;margin-bottom:13px}
+.notice{
+  border:1px solid #51401e;
+  background:#211b10;
+  border-radius:12px;
+  padding:12px;
+  font-size:11px;
+  color:#d7c08c;
+  line-height:2;
+  margin-top:15px;
+}
+.nav{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:22px 0;
+}
+.nav button{
+  background:#171717;
+  border:1px solid #303030;
+  color:#bbb;
+  border-radius:12px;
+  padding:12px 4px;
+  font-size:11px;
+}
+.nav button.active{
+  color:var(--gold2);
+  border-color:#806126;
+  background:#251d10;
+}
 .page{display:none}
 .page.active{display:block}
-.notice{font-size:10px;line-height:1.9;color:#888;text-align:center;margin:18px 5px}
-.invitebox{background:#17140e;border:1px dashed #806126;padding:17px;border-radius:15px;text-align:center;margin-top:14px}
-.invitebox code{display:block;color:var(--gold);direction:ltr;margin:12px 0;word-break:break-all}
-.empty{text-align:center;padding:35px 10px;color:#999}
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:10px;
+  line-height:2;
+  margin-top:30px;
+}
+.message{
+  text-align:center;
+  font-size:12px;
+  color:var(--gold2);
+  margin-top:12px;
+  min-height:20px;
+}
 </style>
 </head>
 <body>
-<header>
+<div class="container">
+
+<header class="header">
   <div class="logo" dir="ltr"><span>$</span>HAHIN</div>
-  <div class="pill">✦ AIRDROP NETWORK</div>
+  <div class="status">● سیستم فعال</div>
 </header>
 
-<main>
-<section id="home" class="page active">
-  <div class="welcome">خوش اومدی به دنیای HAHIN ✨</div>
-  <div class="hero">
-    <div class="small">موجودی کل امتیازهای شما</div>
-    <div class="balance" id="balance">0</div>
-    <div class="unit">HAHIN POINTS</div>
-    <div class="stats">
-      <div class="stat"><span>قدرت ماینینگ</span><b id="rate">100 / ساعت</b></div>
-      <div class="stat"><span>وضعیت ماینینگ</span><b id="status">غیرفعال</b></div>
+<div class="welcome" id="welcome">به دنیای $HAHIN خوش آمدی ✨</div>
+<div class="sub">امتیاز جمع کن و در اکوسیستم $HAHIN پیشرفت کن.</div>
+
+<div class="balance-card">
+  <div class="balance-label">موجودی کل امتیازهای شما</div>
+  <div class="balance" id="balance">0</div>
+  <div class="balance-unit">HAHIN POINTS</div>
+</div>
+
+<div class="nav">
+  <button class="active" data-page="home">🏠 خانه</button>
+  <button data-page="tasks">📋 تسک‌ها</button>
+  <button data-page="invite">👥 دعوت دوستان</button>
+</div>
+
+<div class="page active" id="home">
+
+  <div class="card">
+    <div class="card-title">⛏️ استخراج امتیاز</div>
+    <div class="mining-icon">⚒️</div>
+    <div class="timer" id="timer">12:00:00</div>
+    <div class="progress">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+    <div class="info" id="miningInfo">
+      با شروع استخراج، پس از ۱۲ ساعت می‌توانی پاداش خود را دریافت کنی.
+      <br>پاداش هر دوره: ۱۰۰ امتیاز
+    </div>
+    <button class="btn" id="miningBtn">شروع استخراج</button>
+    <div class="message" id="miningMessage"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎁 پاداش روزانه</div>
+    <div class="info">
+      هر روز یک بار پاداش ۵۰ امتیازی خودت را دریافت کن.
+    </div>
+    <button class="btn secondary" id="dailyBtn">دریافت پاداش روزانه</button>
+    <div class="message" id="dailyMessage"></div>
+  </div>
+
+  <div class="grid">
+    <div class="mini-card">
+      <div class="mini-icon">💎</div>
+      <div class="mini-title">امتیازهای من</div>
+      <div class="mini-desc" id="smallBalance">۰ امتیاز</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-icon">🚀</div>
+      <div class="mini-title">استخراج ۱۲ ساعته</div>
+      <div class="mini-desc">دریافت دستی پاداش</div>
     </div>
   </div>
+</div>
 
-  <div class="section">
-    <div class="section-title">⛏️ ماینینگ شما <small>دوره ۱۲ ساعته</small></div>
-    <div class="mine">
-      <div class="orb">⚡</div>
-      <div class="small" id="mineText">برای شروع، دکمه زیر رو بزن</div>
-      <div class="timer" id="timer">12:00:00</div>
-      <div class="progress"><div id="bar"></div></div>
-      <div class="small" id="earned">پاداش این دوره: 1,200 امتیاز</div>
-      <button class="primary" id="mineBtn" onclick="mineAction()">START MINING</button>
+<div class="page" id="tasks">
+  <div class="card">
+    <div class="card-title">📋 مأموریت‌ها</div>
+    <div class="mini-card">
+      <div class="mini-icon">📱</div>
+      <div class="mini-title">فعالیت‌های اجتماعی</div>
+      <div class="mini-desc">مأموریت‌ها به‌زودی فعال می‌شوند.</div>
+    </div>
+    <div class="mini-card" style="margin-top:12px">
+      <div class="mini-icon">⭐</div>
+      <div class="mini-title">مأموریت‌های ویژه</div>
+      <div class="mini-desc">در انتظار انتشار مأموریت‌های جدید.</div>
     </div>
   </div>
+</div>
 
-  <div class="section">
-    <div class="section-title">🎁 پاداش‌های روزانه</div>
-    <div class="card">
-      <div class="ico">🎁</div>
-      <b>جایزه ورود روزانه</b>
-      <small>هر روز به بازی سر بزن و جایزه بگیر</small>
-      <button class="secondary" id="dailyBtn" style="margin-top:13px" onclick="dailyReward()">دریافت جایزه روزانه</button>
+<div class="page" id="invite">
+  <div class="card">
+    <div class="card-title">👥 دعوت دوستان</div>
+    <div class="mining-icon">🤝</div>
+    <div class="info">
+      لینک برنامه را برای دوستانت بفرست تا با $HAHIN آشنا شوند.
+      <br>ثبت و محاسبه پاداش دعوت هنوز فعال نشده است.
     </div>
+    <button class="btn" id="shareBtn">اشتراک‌گذاری لینک برنامه</button>
+    <div class="message" id="inviteMessage"></div>
   </div>
-</section>
+</div>
 
-<section id="tasks" class="page">
-  <div class="section-title">📋 تسک‌ها <small>ماموریت‌های کسب امتیاز</small></div>
-  <div class="task"><div class="ico">📢</div><div class="info"><b>عضویت در کانال تلگرام</b><small>+500 امتیاز</small></div><button onclick="taskInfo()">انجام تسک</button></div>
-  <div class="task"><div class="ico">👥</div><div class="info"><b>دعوت از یک دوست</b><small>+300 امتیاز</small></div><button onclick="go('invite')">دعوت</button></div>
-  <div class="task"><div class="ico">🌟</div><div class="info"><b>بازدید روزانه</b><small>+100 امتیاز</small></div><button onclick="go('home')">دریافت</button></div>
-  <p class="notice">پاداش تسک‌ها تا زمان اتصال سیستم تأیید و سرور، آزمایشی هستند.</p>
-</section>
+<div class="notice">
+  امتیازهای $HAHIN در حال حاضر قابل تبدیل به پول یا برداشت نقدی نیستند. قابلیت‌های پاداش و برداشت واقعی فقط پس از راه‌اندازی رسمی فعال خواهند شد.
+</div>
 
-<section id="invite" class="page">
-  <div class="section-title">👥 دعوت دوستان</div>
-  <div class="hero">
-    <div class="orb">🤝</div>
-    <div class="small">دوستات رو به HAHIN دعوت کن</div>
-    <div class="balance" style="font-size:27px">+300</div>
-    <div class="unit">امتیاز برای هر دعوت معتبر (نمونه)</div>
-  </div>
-  <div class="invitebox">
-    <b>لینک دعوت اختصاصی</b>
-    <code id="inviteLink">لینک پس از اتصال ربات ساخته می‌شود</code>
-    <button class="primary" onclick="copyInvite()">کپی لینک دعوت</button>
-  </div>
-  <p class="notice">دعوت واقعی و ثبت پاداش نیازمند اتصال به ربات و سرور است.</p>
-</section>
+<div class="footer">
+  با مشارکت تو، اکوسیستم $HAHIN رشد می‌کند. ✦
+</div>
 
-<section id="wallet" class="page">
-  <div class="section-title">💰 کیف پول و امتیازها</div>
-  <div class="hero">
-    <div class="small">موجودی فعلی</div>
-    <div class="balance" id="walletBalance">0</div>
-    <div class="unit">HAHIN POINTS</div>
-  </div>
-  <div class="section">
-    <div class="card">
-      <div class="ico">🔐</div>
-      <b>وضعیت برداشت</b>
-      <small>برداشت هنوز فعال نشده است. هر زمان سیستم برداشت واقعی راه‌اندازی شود، همین‌جا اطلاع‌رسانی می‌کنیم.</small>
-    </div>
-  </div>
-</section>
-
-<p class="notice">نسخه آزمایشی رابط کاربری $HAHIN است. امتیازها فعلاً ارزش نقدی یا قابلیت برداشت ندارند.</p>
-</main>
-
-<nav class="nav">
-  <button class="active" data-page="home" onclick="go('home')"><strong>⌂</strong>خانه</button>
-  <button data-page="tasks" onclick="go('tasks')"><strong>▤</strong>تسک‌ها</button>
-  <button data-page="invite" onclick="go('invite')"><strong>♧</strong>دعوت</button>
-  <button data-page="wallet" onclick="go('wallet')"><strong>◈</strong>کیف پول</button>
-</nav>
+</div>
 
 <script>
-const HOUR=3600000, DURATION=12*HOUR, REWARD=1200;
-let balance=Number(localStorage.getItem('hah_balance')||0);
-let start=Number(localStorage.getItem('hah_start')||0);
-let lastDaily=localStorage.getItem('hah_daily')||'';
-function save(){localStorage.setItem('hah_balance',balance);document.getElementById('balance').textContent=balance.toLocaleString('en-US');document.getElementById('walletBalance').textContent=balance.toLocaleString('en-US')}
-function go(page){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(page).classList.add('active');
- document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+const API = "https://shahin-api.shahinbh115.workers.dev";
+const tg = window.Telegram ? window.Telegram.WebApp : null;
+
+let profile = null;
+let miningTimer = null;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+  if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    const firstName = tg.initDataUnsafe.user.first_name || "";
+    document.getElementById("welcome").textContent =
+      "خوش آمدی " + firstName + " ✨";
+  }
 }
-function mineAction(){
- if(!start){start=Date.now();localStorage.setItem('hah_start',start);update();}
- else if(Date.now()>=start+DURATION){balance+=REWARD;localStorage.setItem('hah_balance',balance);start=0;localStorage.removeItem('hah_start');save();update();alert('تبریک! ۱۲۰۰ امتیاز به موجودی آزمایشی شما اضافه شد.');}
+
+function showMessage(id, message) {
+  document.getElementById(id).textContent = message;
 }
-function update(){
- save();
- const btn=document.getElementById('mineBtn'),status=document.getElementById('status');
- if(!start){document.getElementById('timer').textContent='12:00:00';document.getElementById('bar').style.width='0%';document.getElementById('mineText').textContent='برای شروع، دکمه زیر رو بزن';document.getElementById('earned').textContent='پاداش این دوره: 1,200 امتیاز';btn.textContent='START MINING';btn.disabled=false;status.textContent='غیرفعال';}
- else{
-  const elapsed=Date.now()-start,remaining=Math.max(0,DURATION-elapsed),h=Math.floor(remaining/HOUR),m=Math.floor(remaining%HOUR/60000),s=Math.floor(remaining%60000/1000);
-  document.getElementById('timer').textContent=[h,m,s].map(x=>String(x).padStart(2,'0')).join(':');
-  document.getElementById('bar').style.width=Math.min(100,elapsed/DURATION*100)+'%';
-  document.getElementById('mineText').textContent=remaining?'ماینینگ در حال انجام است':'پاداش شما آماده دریافت است';
-  document.getElementById('earned').textContent=remaining?'پس از پایان تایمر، پاداش را دریافت کن':'۱۲۰۰ امتیاز آماده دریافت است';
-  btn.textContent=remaining?'MINING...':'CLAIM REWARD';btn.disabled=!!remaining;status.textContent='فعال';
- }
+
+async function apiRequest(path) {
+  if (!tg || !tg.initData) {
+    throw new Error("برنامه را از داخل ربات تلگرام باز کن.");
+  }
+
+  const response = await fetch(API + path, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({initData: tg.initData})
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "خطا در ارتباط با سرور");
+  }
+
+  return data;
 }
-function dailyReward(){
- const today=new Date().toLocaleDateString('en-CA');
- if(lastDaily===today){alert('جایزه امروز رو قبلاً دریافت کردی!');return;}
- balance+=100;lastDaily=today;localStorage.setItem('hah_daily',today);localStorage.setItem('hah_balance',balance);save();alert('۱۰۰ امتیاز آزمایشی دریافت کردی!');document.getElementById('dailyBtn').textContent='جایزه دریافت شد ✓';
+
+function formatNumber(number) {
+  return Number(number || 0).toLocaleString("fa-IR");
 }
-function taskInfo(){alert('برای فعال‌سازی این تسک باید کانال رسمی و سیستم تأیید عضویت متصل شوند.');}
-function copyInvite(){alert('لینک دعوت پس از اتصال به ربات تلگرام ساخته می‌شود.');}
-if(lastDaily===new Date().toLocaleDateString('en-CA'))document.getElementById('dailyBtn').textContent='جایزه دریافت شد ✓';
-update();setInterval(update,1000);
+
+function renderProfile(data) {
+  profile = data;
+  const balance = Number(data.balance || 0);
+
+  document.getElementById("balance").textContent =
+    formatNumber(balance);
+
+  document.getElementById("smallBalance").textContent =
+    formatNumber(balance) + " امتیاز";
+
+  renderMining(data);
+}
+
+function renderMining(data) {
+  const button = document.getElementById("miningBtn");
+  const timer = document.getElementById("timer");
+  const info = document.getElementById("miningInfo");
+  const progress = document.getElementById("progress");
+
+  if (miningTimer) clearInterval(miningTimer);
+
+  if (!data.ends_at) {
+    timer.textContent = "12:00:00";
+    info.innerHTML = "با شروع استخراج، پس از ۱۲ ساعت پاداش خود را دریافت کن.<br>پاداش هر دوره: ۱۰۰ امتیاز";
+    button.textContent = "شروع استخراج";
+    button.disabled = false;
+    button.onclick = startMining;
+    progress.style.width = "0%";
+    return;
+  }
+
+  button.onclick = null;
+
+  function updateTimer() {
+    const now = Math.floor(Date.now() / 1000);
+    const remaining = Number(data.ends_at) - now;
+    const total = 43200;
+
+    if (remaining <= 0) {
+      timer.textContent = "00:00:00";
+      progress.style.width = "100%";
+      info.textContent = "استخراج تمام شد! حالا پاداشت را دریافت کن.";
+      button.textContent = "دریافت ۱۰۰ امتیاز";
+      button.disabled = false;
+      button.onclick = claimMining;
+      clearInterval(miningTimer);
+      return;
+    }
+
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    const seconds = remaining % 60;
+
+    timer.textContent =
+      [hours, minutes, seconds].map(x => String(x).padStart(2,"0")).join(":");
+
+    const percent = Math.min(100, ((total - remaining) / total) * 100);
+    progress.style.width = percent + "%";
+    info.textContent = "استخراج در حال انجام است. پس از پایان زمان، پاداش را دریافت کن.";
+    button.textContent = "استخراج در حال انجام";
+    button.disabled = true;
+  }
+
+  updateTimer();
+  miningTimer = setInterval(updateTimer, 1000);
+}
+
+async function loadProfile() {
+  try {
+    showMessage("miningMessage", "در حال دریافت اطلاعات...");
+    const result = await apiRequest("/api/me");
+    renderProfile(result.profile);
+    showMessage("miningMessage", "");
+  } catch (error) {
+    showMessage("miningMessage", error.message);
+  }
+}
+
+async function startMining() {
+  const button = document.getElementById("miningBtn");
+  button.disabled = true;
+  showMessage("miningMessage", "در حال شروع استخراج...");
+
+  try {
+    await apiRequest("/api/mining/start");
+    await loadProfile();
+    showMessage("miningMessage", "استخراج با موفقیت شروع شد.");
+  } catch (error) {
+    showMessage("miningMessage", error.message);
+    button.disabled = false;
+  }
+}
+
+async function claimMining() {
+  const button = document.getElementById("miningBtn");
+  button.disabled = true;
+  showMessage("miningMessage", "در حال دریافت پاداش...");
+
+  try {
+    const result = await apiRequest("/api/mining/claim");
+    await loadProfile();
+    showMessage("miningMessage", result.claimed + " امتیاز دریافت شد.");
+  } catch (error) {
+    showMessage("miningMessage", error.message);
+    button.disabled = false;
+  }
+}
+
+document.getElementById("dailyBtn").addEventListener("click", async function() {
+  this.disabled = true;
+  showMessage("dailyMessage", "در حال بررسی پاداش...");
+
+  try {
+    const result = await apiRequest("/api/daily");
+    await loadProfile();
+    showMessage("dailyMessage", result.claimed + " امتیاز دریافت شد.");
+  } catch (error) {
+    showMessage("dailyMessage", error.message);
+  } finally {
+    this.disabled = false;
+  }
+});
+
+document.getElementById("shareBtn").addEventListener("click", function() {
+  const link = "https://t.me/ShahinTask2026Bot";
+  if (tg) {
+    tg.openTelegramLink(
+      "https://t.me/share/url?url=" + encodeURIComponent(link) +
+      "&text=" + encodeURIComponent("به برنامه $HAHIN بپیوند!")
+    );
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(link);
+    showMessage("inviteMessage", "لینک برنامه کپی شد.");
+  } else {
+    showMessage("inviteMessage", link);
+  }
+});
+
+document.querySelectorAll(".nav button").forEach(button => {
+  button.addEventListener("click", function() {
+    document.querySelectorAll(".nav button").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+
+    this.classList.add("active");
+    document.getElementById(this.dataset.page).classList.add("active");
+  });
+});
+
+loadProfile();
 </script>
 </body>
 </html>
