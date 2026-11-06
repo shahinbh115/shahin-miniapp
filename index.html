@@ -10,8 +10,8 @@
 body{margin:0;background:#090909;color:#f7f2e8;font-family:Tahoma,Arial,sans-serif;padding-bottom:85px}
 :root{--gold:#e9bd59;--muted:#999;--panel:#151515;--line:#29251c}
 header{padding:22px 18px 12px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:25px;font-weight:900;letter-spacing:1px;color:var(--gold)}
-.logo span{color:white}
+.logo{direction:ltr;unicode-bidi:isolate;font-size:25px;font-weight:900;letter-spacing:1px;color:var(--gold)}
+.logo span{color:var(--gold)}
 .pill{font-size:11px;border:1px solid #5a4824;color:var(--gold);padding:7px 10px;border-radius:20px}
 main{max-width:520px;margin:auto;padding:10px 16px}
 .welcome{color:var(--muted);font-size:13px;margin:8px 0 16px}
@@ -61,7 +61,7 @@ button{border:0;font-family:inherit;cursor:pointer}
 </head>
 <body>
 <header>
-  <div class="logo">$<span>HAHIN</span></div>
+  <div class="logo" dir="ltr"><span>$</span>HAHIN</div>
   <div class="pill">✦ AIRDROP NETWORK</div>
 </header>
 
